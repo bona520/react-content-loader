@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,14 +7,89 @@
 }
 
 :root {
-  --primary-color: #f3f3f3;
+  --primary-color: red;
   --secondary-color: #fff;
   --title-color: #fff;
+  --body-color: #f1f8ff;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.is-active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  background-color: var(--primary-color);
+  width: 100%;
+  transform: scaleX(1);
+  height: 2px;
+}
+
+.main {
+  width: 100%;
 }
 
 .container {
+  max-width: 1280px;
   width: 100%;
-  height: 100vh;
+  margin: auto;
+}
+
+.container .category {
+  height: 50px;
+  margin-top: 1rem;
+}
+
+.container .category .ul-category {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .category .ul-category .li-category {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-right: 20px;
+}
+
+.container .category .ul-category .li-category {
+  margin-right: 20px;
+}
+
+.container .category .ul-category .li-category:last-child {
+  margin-right: 0;
+}
+
+.container .category .ul-category .li-category .name {
+  display: inline-block;
+  position: relative;
+  color: var(--primary-color);
+}
+
+.container .category .ul-category .li-category .name:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
   background-color: var(--primary-color);
-  margin: 0 auto;
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+
+.container .category .ul-category .li-category .name:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom right;
 }

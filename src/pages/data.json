@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "name": "Slide",
+            "path": "slide"
+        },
+        {
+            "name": "Banner",
+            "path": "banner"
+        },
+        {
+            "name": "Popular Product",
+            "path": "popular-product"
+        },
+        {
+            "name": "Feature Product",
+            "path": "feature-product"
+        },
+        {
+            "name": "Shop",
+            "path": "shop"
+        },
+        {
+            "name": "Contact",
+            "path": "contact"
+        }
+    ]
+}
