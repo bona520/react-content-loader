@@ -1,95 +1,48 @@
-import React from 'react'
-import ContentLoader from 'react-content-loader'
+import React from "react"
+import ContentLoader from "react-content-loader"
 
-const CatalogMagic = ({
-  width = 1366,
-  heading = { width: 140, height: 24 },
-  row = 2,
-  column = 5,
-  padding = 12,
-  borderRadius = 4,
-  ...props
-}) => {
-  const list = []
+const MyLoader = (props) => (
+  <ContentLoader 
+    speed={4}
+    width={1200}
+    height={1100}
+    viewBox="0 0 1200 1100"
+    backgroundColor="#f5f5f5"
+    foregroundColor="#ecebeb"
+    {...props}
+  >
+    <circle cx="46" cy="46" r="31" /> 
+    <rect x="146" y="40" rx="3" ry="3" width="76" height="16" /> 
+    <rect x="244" y="40" rx="3" ry="3" width="82" height="16" /> 
+    <rect x="346" y="40" rx="3" ry="3" width="40" height="16" /> 
+    <circle cx="514" cy="44" r="10" /> 
+    <circle cx="543" cy="44" r="10" /> 
+    <circle cx="571" cy="44" r="10" /> 
+    <rect x="13" y="110" rx="10" ry="10" width="572" height="159" /> 
+    <rect x="12" y="310" rx="10" ry="10" width="269" height="124" /> 
+    <rect x="311" y="310" rx="10" ry="10" width="271" height="124" /> 
+    <rect x="15" y="470" rx="3" ry="3" width="82" height="16" /> 
+    <rect x="18" y="506" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="167" y="506" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="310" y="506" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="458" y="506" rx="10" ry="10" width="121" height="145" /> 
+    <circle cx="539" cy="477" r="10" /> 
+    <circle cx="567" cy="477" r="10" /> 
+    <rect x="15" y="680" rx="3" ry="3" width="82" height="16" /> 
+    <rect x="509" y="680" rx="3" ry="3" width="70" height="16" /> 
+    <rect x="430" y="680" rx="3" ry="3" width="70" height="16" /> 
+    <rect x="345" y="680" rx="3" ry="3" width="70" height="16" /> 
+    <rect x="263" y="680" rx="3" ry="3" width="70" height="16" /> 
+    <rect x="21" y="717" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="170" y="717" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="313" y="717" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="461" y="717" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="21" y="880" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="170" y="880" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="313" y="880" rx="10" ry="10" width="121" height="145" /> 
+    <rect x="461" y="880" rx="10" ry="10" width="121" height="145" />
+  </ContentLoader>
+)
 
-  let height
+export default MyLoader
 
-  for (let i = 1; i <= row; i++) {
-    for (let j = 0; j < column; j++) {
-      const itemWidth = (width - padding * (column + 1)) / column
-
-      const x = padding + j * (itemWidth + padding)
-
-      const height1 = itemWidth
-
-      const height2 = 20
-
-      const height3 = 20
-
-      const space =
-        padding + height1 + (padding / 2 + height2) + height3 + padding * 4
-
-      const y1 = padding + heading.height + padding * 2 + space * (i - 1)
-
-      const y2 = y1 + padding + height1
-
-      const y3 = y2 + padding / 2 + height2
-
-      list.push(
-        <>
-          <rect
-            x={x}
-            y={y1}
-            rx={borderRadius}
-            ry={borderRadius}
-            width={itemWidth}
-            height={height1}
-          />
-          <rect x={x} y={y2} rx={0} ry={0} width={itemWidth} height={height2} />
-          <rect
-            x={x}
-            y={y3}
-            rx={0}
-            ry={0}
-            width={itemWidth * 0.6}
-            height={height3}
-          />
-        </>
-      )
-
-      if (i === row) {
-        height = y3 + height3
-      }
-    }
-  }
-
-  return (
-    <ContentLoader
-      viewBox={`0 0 ${width} ${height}`}
-      width={width}
-      height={height}
-      {...props}
-    >
-      {heading && (
-        <rect
-          x={padding}
-          y={padding}
-          rx={0}
-          ry={0}
-          width={heading.width}
-          height={heading.height}
-        />
-      )}
-      {list}
-    </ContentLoader>
-  )
-}
-
-CatalogMagic.metadata = {
-  name: 'I am Doong - I come from Việt Nam',
-  github: 'toiladoong',
-  description: 'CatalogMagic',
-  filename: 'CatalogMagic',
-}
-
-export default CatalogMagic
